@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>v-bind Conditionals</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.backgroundDesign {background:red; border: 1px dotted #fe0000; padding:30px; display:block; text-align:center;}
+			.fontDesign {font-style:italic; font-family:Arial; font-weight:bold; font-size:30px;}
+		</style>
+	</head>
+	<body>
+<!-- use this method to create a banner for the game -->
+	<div id="app">
+		<span v-bind:class="{backgroundDesign:bannerColours, fontDesign:fontColours}">
+			Roll the die and test your luck!
+		</span>
+	</div>
+
+	<script>
+	var app = new Vue({
+		el: '#app',
+		data:{
+      bannerColours:true,
+			fontColours: true
+		}
+	});
+	</script>
+
+	</body>
+</html>

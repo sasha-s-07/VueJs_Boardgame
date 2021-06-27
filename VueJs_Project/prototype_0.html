@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+    <title>Test Your Luck</title>
+    <meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+
+	<div id="app">
+		{{game_instructions}}
+    <!-- can use this method to display instructions for the game -->
+	</div>
+
+	<script>
+	var app = new Vue({
+		el: '#app',
+		data:{
+			game_instructions: 'You can only move spaces if you role a 1,2,or 3 on the dice. If you role a 4,5,or 6, you dont move any spaces.'
+		}
+	});
+
+	//step 1: open console
+	//step 2: write the following line
+	//	app.game_instructions="Test your luck";
+
+	</script>
+	</body>
+</html>

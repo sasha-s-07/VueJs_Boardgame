@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>v-if If Statements</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.special {background:yellow; border: 1px dotted #fe0000; padding:30px; display:block; text-align:center;}
+			.important {font-weight:bold; font-size:30px;}
+		</style>
+	</head>
+	<body>
+<!-- the methods below are used to list the prizes for the game players. If there is no prize data available, it will read
+no prizes available for that player.  -->
+	<div id="app">
+		<span v-if="winner_prizes">
+Congrats on completing the game		</span>
+		<figure v-bind:class = "figureClass">
+			<img v-bind:src="figureImg"/>
+			<figcaption>
+				<p v-if = "winner_prizes.firstPlace">1st Place: {{winner_prizes.firstPlace}}</p>
+				<p v-else = "winner_prizes.firstPlace">1st Place: no prizes available</p>
+				<p v-if = "winner_prizes.secondPlace">2nd Place: {{winner_prizes.secondPlace}}</p>
+				<p v-else = "winner_prizes.secondPlace">2nd Place: no prizes available</p>
+        <p v-if = "winner_prizes.thirdPlace">3rd Place: {{winner_prizes.thirdPlace}}</p>
+        <p v-else = "winner_prizes.thirdPlace">3rd Place: no prizes available</p>
+			</figcaption>
+		</figure>
+
+		<span v-else>
+			No prize Data found.
+		</span>
+
+	</div>
+
+	<script>
+	var app = new Vue({
+		el: '#app',
+
+		data:{
+			figureClass:"figure",
+			figureImg: "winner.jpg",
+
+			winner_prizes:{
+        firstPlace: "Congrats, you won a $10 gift card",
+				secondPlace: "Congrats, you won a $5 gift card",
+				thirdPlace: "Congrats, you get bragging rights for not being last"
+			}
+
+		}
+
+	});
+	</script>
+
+	</body>
+</html>

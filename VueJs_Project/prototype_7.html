@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+
+		<title>Track Your Scores</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.formfield{margin-bottom:10px;}
+		</style>
+	</head>
+	<!-- the below game component can be used to calculate total points for the game and calculate who won -->
+	<body>
+	<p>Keep Track of Playyer Points <a href="https://cemc.uwaterloo.ca/contests/computing/2020/index.html">from the J1 problem hosted by the CCC.</a></p>
+	<div id="app">
+		<div class="formfield">
+			<label>Player One Points: <label> <input v-model="player_one">
+		</div>
+		<div class="formfield">
+			<label>Player Two Points: <label> <input v-model="player_two">
+		</div>
+		<div class="formfield">
+			<label>Player Three Points: <label> <input v-model="player_three">
+		</div>
+		<div id="result">
+			<div><label>Total points:</label><input type="checkbox" v-model="game_results"></div>
+			<div v-if="game_results">Game Total: {{game_total}}</div>
+			<span v-if="is_happy">{{player_one}} is the winner!</span>
+			<span v-else>{{player_one}} did not win</span>
+		</div>
+	</div>
+
+	<script>
+	var app = new Vue({
+		el: '#app',
+		data:{
+			game_results:false,
+			player_one:"player one",
+			player_one:0,
+			player_two:0,
+			player_three:0,
+			player_one_points:1,
+			player_two_points:2,
+			player_three_points:3
+		},
+		computed:{
+			game_total:function(){
+				return (this.player_one * this.player_one_points) +
+				(this.player_two * this.player_two_points) +
+				(this.player_three * this.player_three_points);
+			},
+			player_one_won:function(){
+
+				return this.game_total>=10;
+			}
+		}
+	});
+
+	</script>
+
+
+
+	</body>
+</html>

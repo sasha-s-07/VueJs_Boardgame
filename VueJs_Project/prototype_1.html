@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Test Your Luck</title>
+		<meta charset="UTF-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			.container{background:#cecece;}
+			.highlight{border: 6px solid black }
+		</style>
+	</head>
+	<body>
+
+	<div id="app">
+		<!--
+		//step 1: open console
+		//step 2: inspect "look at me!" HTML
+		//step 3: notice how the class is set for the span to "container"
+
+		v-bind:html_attribute_key="data_object_property"
+
+		or
+
+		v-bind:html_attribute_key="'string_literal'"
+
+		EXAMPLES
+		data properties
+			v-bind:style="newStyle"
+			v-bind:alt="newAlt"
+
+		string literals
+			v-bind:href="'www.vuejs.org'"
+			v-bind:style="'display:block;margin-top:20px;'"
+			v-bind:alt="'New Alt Text'"
+
+		WARNING: Vue.js doesn't like dynamically setting IDs. Try it!
+
+		ASYNCHRONOUS LEARNING EXERCISE
+			1. Create an image and set the following attributes with Vue {src, alt, title}
+			2. Augment the span below to include another class called "highlight", which has a yellow border.
+		-->
+    <!-- each span represents a space for the player to move on. The first person to make it to 10 is the winner. -->
+		<span v-bind:class="[loadClass,loadClass2]" >
+			1
+		</span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+      2
+    </span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+      3
+    </span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+      4
+    </span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+      5
+    </span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+      6
+    </span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+    7
+    </span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+      8
+    </span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+      9
+    </span>
+    <span v-bind:class="[loadClass,loadClass2]" >
+    10
+    </span>
+		<img v-bind:src="loadSrc" v-bind:alt="newAlt" v-bind:title="imgTitle" v-bind:width="imgWidth"/>
+	</div>
+
+	<script>
+	var app = new Vue({
+		//Bind Vue object to HTML element through query selector
+		el: '#app',
+		data:{
+			loadClass : 'container',
+			loadClass2 : 'highlight',
+			loadSrc: 'trophy.png',
+			imgTitle: 'trophy',
+			newAlt : 'trophy cartoon',
+      imgWidth: '60px'
+		}
+	});
+
+
+
+	</script>
+	</body>
+</html>
